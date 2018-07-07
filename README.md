@@ -3,6 +3,7 @@ Algorithm for quickly sort a group of digits
 
 
 Method:
+
         During a group of array digits, first we find out the min and max item,
 
         by formula "(max - min) / n" get the unit size divisor,
