@@ -31,6 +31,7 @@ void jaysort(int arr[], int n)
 	for(i=0; i<n; i++)
 	{
 		ni = (arr[i]-min) / unit_size;//compute the current item's index value
+		if(ni>=n) ni=n-1;
 		for(m=ni; m<n; m++) {//items which on the indexed item right side, require to bigger than the indexed one
 			if(arr[m]<arr[i]) {//if found a smaller item than the indexed item, move to left
 				for(q=m; q>0; q--) {
@@ -38,6 +39,11 @@ void jaysort(int arr[], int n)
 						temp = arr[q-1];
 						arr[q-1] = arr[q];
 						arr[q] = temp;
+						if(q<n-1 && arr[q]>arr[q+1]) {//by the way compare the next item
+							temp = arr[q];
+							arr[q] = arr[q+1];
+							arr[q+1] = temp;
+						}
 					}
 				}
 			}
@@ -48,7 +54,7 @@ void jaysort(int arr[], int n)
 	{
 		if(arr[i]>arr[i+1]) {
 			temp = arr[i];
-			arr[i] = arr[i];
+			arr[i] = arr[i+1];
 			arr[i+1] = temp;
 		}
 	}
