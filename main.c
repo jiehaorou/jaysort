@@ -1,14 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/time.h>
 #include <unistd.h>
 #include "jaysort.c"
 
 
 int main(int argc, char* argv[]) {
-	static int bits = 2200;  //items quantity
+	int bits = (argc>1 ? atoi(argv[1]) : 22);  //items quantity
 	int decis[bits];
 	for(int q=bits; q>0; --q) {
-		decis[bits-q] = q+(bits-q)*(q%2)+(q/3);
+		decis[bits-q] = q+(bits-q)*(q%2)+(q/3); //generate the item,can change to another way
 	}
 
 	printf("Origin:\n");
