@@ -27,8 +27,8 @@ each loop time same way.
 
 "main.c": main file for test
 
-"jaysort.c": normal speed performance
+"jaysort.c": normal speed performance (2200 items spend 0.016 sec)
 
-"jaysort_q.c": high speed version require double memory copy (space transfer time)
+"jaysort_q.c": super high speed version require double memory copy (space transfer time) (2 million items spend <0.2 sec)
 
 
