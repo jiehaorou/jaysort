@@ -16,21 +16,22 @@
 
 void supersort(int arr[], register int n)
 {
-	int min=0,max=0, i=0;
+	int min0=0, max=0, i=0;
 	for(i=0; i<n; i++) {//first find out the min & max item
-		if(i==0 || arr[i]<min) min=arr[i];
+		if(i==0 || arr[i]<min0) min0=arr[i];
 		if(arr[i]>max) max=arr[i];
 	}
 
 	if(n<=2) {//if only 2 items just return the min and max
-		if(n==2) { arr[0]=min; arr[1]=max; }
+		if(n==2) { arr[0]=min0; arr[1]=max; }
 		return;
 	}
 
+	register int min    = min0;
 	register int _UPTI_ = 5;     // require (>= 5)
 	register int ZERO   = min-1; // initilizate value
+	register int tmplen = n*_UPTI_ - n%4 + 4;
 
-	int tmplen = n*_UPTI_ - n%4 + 4;
 	int *swaptmp = (int*)malloc(tmplen*sizeof(int));   //allocate 5 times memory space
 	for(i=0; i<tmplen; i+=4) {
 		swaptmp[i] = ZERO;
