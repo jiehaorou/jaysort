@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>
 #include <unistd.h>
+#include <sys/time.h>
 #include "supersort.c"
 
 
@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 	int bits = (argc>1 ? atoi(argv[1]) : 22);  //items quantity
 	int decis[bits];
 	for(int q=bits; q>0; --q) {
-		decis[bits-q] = q+(bits-q)*(q%2)+(q/3); //generate the item,can change to another way
+		decis[bits-q] = q+(bits-q)*(q%2)+(q/3);//*(q%9==0?-1:1); //generate the item,can change to other way
 	}
 
 	printf("Origin:\n");
