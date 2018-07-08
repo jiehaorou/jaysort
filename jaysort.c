@@ -12,7 +12,7 @@
  * each loop time same way.
  */
 
-void jaysort(int arr[], int n)
+void jaysort(int arr[], register int n)
 {
 	int min=0,max=0, i=0;
 	for(i=0; i<n; i++) {//first find out the min & max item
