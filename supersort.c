@@ -27,14 +27,14 @@ void supersort(int arr[], register int n)
 		return;
 	}
 
-	register int min    = min0;
-	register int _UPTI_ = 5;     // require (>= 5)
-	register int ZERO   = min-1; // initilizate value
+	register int _UPTI_ = 5;      // require (>= 5)
+	register int ZERO   = min0-1; // initilizate value
 	register int tmplen = n*_UPTI_ - n%4 + 4;
+	register int min    = min0;
 
 	int *swaptmp = (int*)malloc(tmplen*sizeof(int));   //allocate 5 times memory space
 	for(i=0; i<tmplen; i+=4) {
-		swaptmp[i] = ZERO;
+		swaptmp[i]   = ZERO;
 		swaptmp[i+1] = ZERO;
 		swaptmp[i+2] = ZERO;
 		swaptmp[i+3] = ZERO;
