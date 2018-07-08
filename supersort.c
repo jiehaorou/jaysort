@@ -11,7 +11,7 @@
  * for position "1", it means the item "9" should be at index 1, equal "arr[1] = 9;",
  *
  * difference from the "jaysort.c" version, here it'll directly set the value in a new memory space
- * this version it spead 5 times memory more, but really high performance, may be quicker than the "Quicksort"/"Mergesort" solutions
+ * this version it spend 5 times memory more, but really high performance, may be quicker than the "Quicksort"/"Mergesort" solutions
  */
 
 void supersort(int arr[], register int n)
