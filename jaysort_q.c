@@ -9,7 +9,8 @@
  * computed position:  {1, 0, 2}      "(9-1)/7~=1, (1-1)/7=0, (20-1)/7~=2"
  * for position "1", it means the item "9" should be at index 1, equal "arr[1] = 9;",
  *
- * ...
+ * difference from the "jaysort.c" version, here it'll directly setting the value in a new memory space
+ * this version it'll spead 5 times memory more, but really very high performance, may be quicker than the "Quicksort" solution
  */
 
 void jaysort_q(int arr[], int n)
