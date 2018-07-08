@@ -9,10 +9,11 @@
  * computed position:  {1, 0, 2}      "(9-1)/7~=1, (1-1)/7=0, (20-1)/7~=2"
  * for position "1", it means the item "9" should be at index 1, equal "arr[1] = 9;",
  *
- * ...
+ * difference from the "jaysort.c" version, here it'll directly setting the value in a new memory space
+ * this version it'll spead 5 times memory more, but really very high performance, may be quicker than the "Quicksort" solution
  */
 
-void jaysort_q(int arr[], int n)
+void jaysort_q(int arr[], register int n)
 {
 	int min=0,max=0, i=0;
 	for(i=0; i<n; i++) {//first find out the min & max item
@@ -25,9 +26,9 @@ void jaysort_q(int arr[], int n)
 		return;
 	}
 
-	register int _UPTI_ = 5;// require (>= 5)
+	register int _UPTI_ = 5;     // require (>= 5)
+	register int ZERO   = min-1; // initilizate value
 
-	int ZERO=min-1;
 	int tmplen = n*_UPTI_ - n%4 + 4;
 	int *swaptmp = (int*)malloc(tmplen*sizeof(int));   //allocate 5 times memory space
 	for(i=0; i<tmplen; i+=4) {

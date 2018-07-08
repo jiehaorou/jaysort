@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <sys/time.h>
 #include <unistd.h>
-#include "jaysort.c"
+#include "jaysort_q.c"
 
 
 int main(int argc, char* argv[]) {
@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 	struct timeval t1,t2; //only for calculate running time
 	gettimeofday(&t1,NULL);
 
-	jaysort(decis, bits); //algorithm here
+	jaysort_q(decis, bits); //algorithm here
 
 	gettimeofday(&t2,NULL);
 	double timeuse = t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/1000000.0;
