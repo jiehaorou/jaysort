@@ -1,4 +1,4 @@
-# jaysort
+# Jayho's sorting solution
 Algorithm for quickly sort a group of digits
 
 
@@ -27,8 +27,8 @@ each loop time same way.
 
 "main.c": main file for test
 
-"jaysort.c": normal speed performance (2200 items spend 0.016 sec)
+"jaysort.c": v1 normal speed performance (2200 items spend 0.016 sec)
 
-"jaysort_q.c": super high speed version require double memory copy (space transfer time) (2 million items spend <0.2 sec)
+"supersort.c": v2 super high speed version require double memory copy (space transfer time) (2 million items spend <0.2 sec)
 
 
