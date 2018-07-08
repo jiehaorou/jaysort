@@ -9,7 +9,7 @@
  * computed position:  {1, 0, 2}      "(9-1)/7~=1, (1-1)/7=0, (20-1)/7~=2"
  * for position "1", it means the item "9" should be at index 1, equal "arr[1] = 9;",
  *
- * ... this way is very high speed, but not finish validation
+ * ...
  */
 
 void jaysort_q(int arr[], int n)
