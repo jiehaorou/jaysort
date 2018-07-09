@@ -13,9 +13,9 @@ Method:
         then items which on that computed position item right side and smaller, move to left.
         (default sort direction Left to Right)
 
-eg: int arr[] = {9, 1, 20};        min:1 max:20 diviser:(1+20)/3=7,
+eg: int arr[] = {9, 1, 22};        min:1 max:21 diviser:(22-1)/3=7,
 
-computed position:  {1, 0, 2}      "(9-1)/7~=1, (1-1)/7=0, (20-1)/7~=2",
+computed position:  {1, 0, 3}      "(9-1)/7~=1, (1-1)/7=0, (22-1)/7~=3",
 
 for position "1", it means the item "9" should be at index 1, equal "arr[1] = 9;",
 
@@ -25,10 +25,11 @@ each loop time same way.
 
 
 
-"main.c": main file for test
+Files:
+       "main.c": main file for test
 
-"jaysort.c": v1 normal speed performance (2200 items spend 0.016 sec)
+       "jaysort.c": v1 normal speed performance (2200 items spend 0.016 sec)
 
-"supersort.c": v2 super high speed version require double memory copy (space transfer time) (2 million items spend <0.2 sec)
+       "supersort.c": v2 super high speed version require double memory copy (space transfer time) (2 million items spend <0.2 sec)
 
 

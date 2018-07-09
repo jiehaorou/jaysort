@@ -6,8 +6,8 @@
  *         then items which on that computed position item right side and smaller, move to left.
  *         (default sort direction Left to Right)
  *
- * eg: int arr[] = {9, 1, 20};        min:1 max:20 diviser:(1+20)/3=7
- * computed position:  {1, 0, 2}      "(9-1)/7~=1, (1-1)/7=0, (20-1)/7~=2"
+ * eg: int arr[] = {9, 1, 22};        min:1 max:21 diviser:(22-1)/3=7
+ * computed position:  {1, 0, 3}      "(9-1)/7~=1, (1-1)/7=0, (22-1)/7~=3"
  * for position "1", it means the item "9" should be at index 1, equal "arr[1] = 9;",
  *
  * difference from the "jaysort.c" version, here it'll directly set the value in a new memory space
@@ -29,7 +29,7 @@ void supersort(int arr[], register int n)
 
 	register int _UPTI_ = 5;      // require (>= 5)
 	register int ZERO   = min0-1; // initilizate value
-	register int tmplen = n*_UPTI_ - n%4 + 4;
+	register int tmplen = n*_UPTI_ - n%4 + 8;
 	register int min    = min0;
 
 	int *swaptmp = (int*)malloc(tmplen*sizeof(int));   //allocate 5 times memory space
@@ -41,6 +41,7 @@ void supersort(int arr[], register int n)
 	}
 
 	register double unit_size = (double)(max-min) / n; //compute the unit size and set to cpu register type
+	if(unit_size==0) return;
 
 	int m=0, q=0, temp=0, val=0;
 	double cbit = 0;
