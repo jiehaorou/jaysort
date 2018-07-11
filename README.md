@@ -29,6 +29,7 @@ Files:
 
        "main.c": main file for test
 
-       "supersort.c": super high speed (2 million items spend <0.2 sec)
+       "supersort.c": algorithm code inside (benchmark, 2 million items spend <0.2 sec)
+
 
 
