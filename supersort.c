@@ -10,29 +10,29 @@
  * computed position:  {1, 0, 3}      "(9-1)/7~=1, (1-1)/7=0, (22-1)/7~=3"
  * for position "1", it means the item "9" should be at index 1, equal "arr[1] = 9;",
  *
- * difference from the "jaysort.c" version, here it'll directly set the value in a new memory space
- * this version it spend 5 times memory more, but really high performance, may be quicker than the "Quicksort"/"Mergesort" solutions
+ * this version it'll spend 5 times memory more, but really high performance, may be quicker than the "Quicksort"/"Mergesort" solutions
  */
 
-void supersort(int arr[], register int n)
+void supersort(int arr[], int n)
 {
-	int min0=0, max=0, i=0;
-	for(i=0; i<n; i++) {//first find out the min & max item
+	register int i = 0;
+	int min0=0, max=0;
+	for(i=0; i<n; i++) { //first find out the min & max item
 		if(i==0 || arr[i]<min0) min0=arr[i];
 		if(arr[i]>max) max=arr[i];
 	}
 
-	if(n<=2) {//if only 2 items just return the min and max
+	if(n<=2) { //if only 2 items just return the min and max
 		if(n==2) { arr[0]=min0; arr[1]=max; }
 		return;
 	}
 
-	register int _UPTI_ = 5;      // require (>= 5)
-	register int ZERO   = min0-1; // initilizate value
+	const int _UPTI_    = 5; //require (>= 5)
+	register int ZERO   = min0-1; //initilizate value
 	register int tmplen = n*_UPTI_ - n%4 + 8;
 	register int min    = min0;
 
-	int *swaptmp = (int*)malloc(tmplen*sizeof(int));   //allocate 5 times memory space
+	int *swaptmp = (int*)malloc(tmplen*sizeof(int)); //allocate 5 times memory space
 	for(i=0; i<tmplen; i+=4) {
 		swaptmp[i]   = ZERO;
 		swaptmp[i+1] = ZERO;
@@ -40,15 +40,15 @@ void supersort(int arr[], register int n)
 		swaptmp[i+3] = ZERO;
 	}
 
-	register double unit_size = (double)(max-min) / n; //compute the unit size and set to cpu register type
+	register double unit_size = 1.0 / ((double)(max-min) / n) * _UPTI_; //compute the unit size
 	if(unit_size==0) return;
 
-	int m=0, q=0, temp=0, val=0;
+	int m=0, temp=0, val=0;
 	double cbit = 0;
 	for(i=0; i<n; i++)
 	{
-		cbit = (double)(arr[i]-min) / unit_size;//compute the current item's index value
-		m = cbit*_UPTI_;
+		cbit = (double)(arr[i]-min) * unit_size; //compute the current item's index value
+		m = cbit;
 		val = arr[i];
 		while(m<tmplen) {
 			if(swaptmp[m]==ZERO) {
