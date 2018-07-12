@@ -32,4 +32,11 @@ Files:
        "supersort.c": algorithm code inside (benchmark, 2 million items spend <0.2 sec)
 
 
+To compile:
+
+		gcc -c main.c -o supersort.o
+
+		gcc supersort.o -o supersort
+
+
 
