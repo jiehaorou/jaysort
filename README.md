@@ -29,7 +29,7 @@ Files:
 
        "main.c": main file for test
 
-       "supersort.c": algorithm code inside (benchmark, 2 million items spend <0.2 sec)
+       "supersort.c": algorithm code inside (benchmark, sort 2 million items spend <0.1 sec)
 
 
 To compile:
