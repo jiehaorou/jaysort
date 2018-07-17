@@ -27,16 +27,20 @@ each loop time same way.
 
 Files:
 
+       "Makefile": Makefile for autocompile
+
        "main.c": main file for test
 
        "supersort.c": algorithm code inside (benchmark, sort 2 million items spend <0.1 sec)
 
 
-To compile:
+Test:
 
-		gcc -c main.c -o supersort.o
+		./supersort 100    #run supersort with 100 random integers
 
-		gcc supersort.o -o supersort
+		./supersort 200 1  #run supersort with 200 random integers, and close the echo output
+
+
 
 
 
